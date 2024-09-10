@@ -1,0 +1,54 @@
+.tutorial-section {
+    background-color: var(--bg-color);
+  }
+  
+  .section-title {
+    text-align: center;
+    margin-bottom: var(--py-xl);
+    color: var(--primary-color);
+  }
+  
+  .tutorial-steps {
+    display: grid;
+    gap: var(--py-lg);
+  }
+  
+  .tutorial-step {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tutorial-step img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .tutorial-step h3 {
+    color: var(--second-text-color);
+    margin: var(--py-sm) var(--py-sm) var(--py-sm);
+  }
+  
+  .tutorial-step p {
+    font-size: var(--fs-base);
+    color: var(--text-color);
+    margin: 0 var(--py-sm) var(--py-sm);
+  }
+  
+  .cta-button {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--py-xl);
+  }
+  
+  @media (width >= 1280px) {
+    .tutorial-section .container {
+      max-width: 1200px;
+    }
+  
+    .tutorial-steps {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
