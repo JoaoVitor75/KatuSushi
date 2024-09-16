@@ -15,9 +15,6 @@ export default function Home() {
             <a>Soluções</a>
           </li>
           <li>
-            <a>Depoimentos</a>
-          </li>
-          <li>
             <a>Preços</a>
           </li>
           <li>

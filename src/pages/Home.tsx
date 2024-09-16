@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Logo from "../assets/logo.svg";
 import Close from "../assets/close.svg";
 import Menu from "../assets/menu.svg";
@@ -14,9 +14,26 @@ import HeroRectangleTwo from "../assets/images/rectangleTwo.png";
 import Foods from "../assets/images/foods.png";
 import Location from "../assets/images/location.png";
 import Tracker from "../assets/images/trackOrder.png";
-export default function Home() {
 
+export default function Home() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+  useEffect(() => {
+    const body = document.body;
+    if (showMobileMenu) {
+        body.style.overflow = 'hidden';
+        body.style.position = 'fixed';
+        body.style.width = '100%';
+    } else {
+        body.style.overflow = 'auto';
+        body.style.position = 'static';
+    }
+
+    return () => {
+        body.style.overflow = 'auto';
+        body.style.position = 'static';
+    };
+}, [showMobileMenu])
 
   return (
     <>
@@ -30,13 +47,7 @@ export default function Home() {
                 <a href="#">Home</a>
               </li>
               <li>
-                <a href="#solution">Soluções</a>
-              </li>
-              <li>
-                <a href="#testimonials">Depoimentos</a>
-              </li>
-              <li>
-                <a href="#pricing">Preços</a>
+                <a href="#tutorial">Como pedir</a>
               </li>
               <li>
                 <a href="#contact">Contato</a>
@@ -62,13 +73,7 @@ export default function Home() {
                       <a href="#">Home</a>
                     </li>
                     <li>
-                      <a href="#solution">Soluções</a>
-                    </li>
-                    <li>
-                      <a href="#testimonials">Depoimentos</a>
-                    </li>
-                    <li>
-                      <a href="#pricing">Preços</a>
+                      <a href="#tutorial">Como pedir</a>
                     </li>
                     <li>
                       <a href="#contact">Contato</a>
@@ -111,7 +116,6 @@ export default function Home() {
         <img src={HeroRectangleOne} alt="Retangulo dois tela inicial" />
 
         <div className="container content">
-
           <h1>Sushi feito com paixão e tradição.</h1>
           <p>
             O sushi que você merece: fresco, autêntico e preparado na hora. Uma
@@ -136,7 +140,7 @@ export default function Home() {
           <div className="tutorial-steps">
             <div className="tutorial-step">
               <img src={Foods} alt="Selecionar comida" />
-              <h3>1. Selecione sua comida</h3>
+              <h3>1. Selecione o seu pedido</h3>
               <p>Navegue pelo nosso cardápio e escolha seus pratos favoritos.</p>
             </div>
             
