@@ -7,9 +7,15 @@ import "../styles/header.css";
 import "../styles/utility.css";
 import "../styles/hero.css";
 import "../styles/tutorial.css";
+import "../styles/contact.css";
+import "../styles/testimonials.css";
 
 import HeroRectangleOne from "../assets/images/rectangleOne.png";
 import HeroRectangleTwo from "../assets/images/rectangleTwo.png";
+
+import ClienteUm from "../assets/images/cliente1.jpg"
+import ClienteDois from "../assets/images/cliente2.png"; 
+import ClienteTres from "../assets/images/cliente3.jpg";
 
 import Foods from "../assets/images/foods.png";
 import Location from "../assets/images/location.png";
@@ -21,19 +27,19 @@ export default function Home() {
   useEffect(() => {
     const body = document.body;
     if (showMobileMenu) {
-        body.style.overflow = 'hidden';
-        body.style.position = 'fixed';
-        body.style.width = '100%';
+      body.style.overflow = "hidden";
+      body.style.position = "fixed";
+      body.style.width = "100%";
     } else {
-        body.style.overflow = 'auto';
-        body.style.position = 'static';
+      body.style.overflow = "auto";
+      body.style.position = "static";
     }
 
     return () => {
-        body.style.overflow = 'auto';
-        body.style.position = 'static';
+      body.style.overflow = "auto";
+      body.style.position = "static";
     };
-}, [showMobileMenu])
+  }, [showMobileMenu]);
 
   return (
     <>
@@ -136,27 +142,130 @@ export default function Home() {
       <section id="tutorial" className="tutorial-section py-xl">
         <div className="container">
           <h2 className="section-title">Como fazer seu pedido de sushi</h2>
-          
+
           <div className="tutorial-steps">
             <div className="tutorial-step">
               <img src={Foods} alt="Selecionar comida" />
               <h3>1. Selecione o seu pedido</h3>
-              <p>Navegue pelo nosso cardápio e escolha seus pratos favoritos.</p>
+              <p>
+                Navegue pelo nosso cardápio e escolha seus pratos favoritos.
+              </p>
             </div>
-            
+
             <div className="tutorial-step">
               <img src={Location} alt="Escolher localização" />
               <h3>2. Como retirar </h3>
-              <p>Selecione entre retirar no local ou receber o pedido em sua casa.</p>
+              <p>
+                Selecione entre retirar no local ou receber o pedido em sua
+                casa.
+              </p>
             </div>
-            
+
             <div className="tutorial-step">
               <img src={Tracker} height={30} alt="Acompanhar pedido" />
               <h3>3. Acompanhe seu pedido</h3>
               <p>Você receberá atualizações em seu whats sobre o pedido.</p>
             </div>
           </div>
-          
+
+          <section id="testimonials" className="testimonials-section py-xl">
+            <div className="container">
+              <h2 className="section-title">O que nossos clientes dizem</h2>
+              <div className="testimonial-carousel">
+                <div className="testimonial-track">
+                  <div className="testimonial-card">
+                    <img
+                      src="{ClienteUm}"
+                      alt="TobeyJaguara"
+                      className="testimonial-image"
+                    />
+                    <p>
+                      "O melhor sushi que já comi! Sempre fresco e delicioso."
+                    </p>
+                    <h4>TobeyJaguara</h4>
+                  </div>
+                  <div className="testimonial-card">
+                    <img
+                      src={ClienteDois}
+                      alt="Garfield"
+                      className="testimonial-image"
+                    />
+                    <p>
+                      "Atendimento impecável e pratos incríveis. Recomendo!"
+                    </p>
+                    <h4>Garfield</h4>
+                  </div>
+                  <div className="testimonial-card">
+                    <img
+                      src={ClienteTres}
+                      alt="Zendaya"
+                      className="testimonial-image"
+                    />
+                    <p>
+                      "A experiência gastronômica que todo amante de sushi
+                      merece."
+                    </p>
+                    <h4>Zendaya</h4>
+                  </div>
+                  <div className="testimonial-card">
+                    <img
+                      src={ClienteUm}
+                      alt="TobeyJaguara"
+                      className="testimonial-image"
+                    />
+                    <p>
+                      "O melhor sushi que já comi! Sempre fresco e delicioso."
+                    </p>
+                    <h4>TobeyJaguara</h4>
+                  </div>
+                  <div className="testimonial-card">
+                    <img
+                      src={ClienteDois}
+                      alt="Garfield"
+                      className="testimonial-image"
+                    />
+                    <p>
+                      "Atendimento impecável e pratos incríveis. Recomendo!"
+                    </p>
+                    <h4>Garfield</h4>
+                  </div>
+                  <div className="testimonial-card">
+                    <img
+                      src={ClienteTres}
+                      alt="Zendaya"
+                      className="testimonial-image"
+                    />
+                    <p>
+                      "A experiência gastronômica que todo amante de sushi
+                      merece."
+                    </p>
+                    <h4>Zendaya</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="join-us" className="join-us-section py-xl">
+            <div className="container">
+              <h2 className="section-title">Mande sua mensagem</h2>
+              <div className="join-us-form">
+                <input
+                  type="email"
+                  placeholder="Seu email"
+                  className="email-input"
+                />
+                 <textarea 
+        placeholder="Sua mensagem"
+        className="message-input"
+        rows={4}
+      />
+      
+                <Button text="Enviar" />
+              </div>
+            </div>
+          </section>
+
           <div className="cta-button">
             <Button text="Fazer pedido agora" />
           </div>
