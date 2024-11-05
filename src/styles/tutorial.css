@@ -11,6 +11,7 @@
   .tutorial-steps {
     display: grid;
     gap: var(--py-lg);
+    margin-bottom: 80px;
   }
   
   .tutorial-step {

@@ -9,12 +9,14 @@ import "../styles/hero.css";
 import "../styles/tutorial.css";
 import "../styles/contact.css";
 import "../styles/testimonials.css";
+import "../styles/combos.css";
+
 
 import HeroRectangleOne from "../assets/images/rectangleOne.png";
 import HeroRectangleTwo from "../assets/images/rectangleTwo.png";
 
-import ClienteUm from "../assets/images/cliente1.jpg"
-import ClienteDois from "../assets/images/cliente2.png"; 
+import ClienteUm from "../assets/images/cliente1.jpg";
+import ClienteDois from "../assets/images/cliente2.png";
 import ClienteTres from "../assets/images/cliente3.jpg";
 
 import Foods from "../assets/images/foods.png";
@@ -139,6 +141,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      
       <section id="tutorial" className="tutorial-section py-xl">
         <div className="container">
           <h2 className="section-title">Como fazer seu pedido de sushi</h2>
@@ -246,6 +249,52 @@ export default function Home() {
             </div>
           </section>
 
+          <section id="combos" className="combos-section py-xl">
+            <div className="container">
+              <h2 className="section-title">Nossos Combos</h2>
+              <div className="combo-cards">
+                <div className="combo-card">
+                  <h3>Combo Simples</h3>
+                  <div className="price">R$ 89,90</div>
+                  <ul className="combo-features">
+                    <li>20 peças</li>
+                    <li>2 Hots</li>
+                    <li>1 Temaki</li>
+                    <li>Refrigerante 1L</li>
+                    <li>4 Joys</li>
+                  </ul>
+                  <Button text="Pedir agora" />
+                </div>
+
+                <div className="combo-card featured">
+                  <h3>Combo Casal</h3>
+                  <div className="price">R$ 149,90</div>
+                  <ul className="combo-features">
+                    <li>40 peças</li>
+                    <li>4 Hots</li>
+                    <li>2 Temakis</li>
+                    <li>Refrigerante 2L</li>
+                    <li>2 Harumakis</li>
+                  </ul>
+                  <Button text="Pedir agora" />
+                </div>
+
+                <div className="combo-card">
+                  <h3>Combo Familia</h3>
+                  <div className="price">R$ 199,90</div>
+                  <ul className="combo-features">
+                    <li>60 peças</li>
+                    <li>6 Hots</li>
+                    <li>3 Temakis</li>
+                    <li>2 Refrigerantes 2L</li>
+                    <li>4 Harumakis</li>
+                  </ul>
+                  <Button text="Pedir agora" />
+                </div>
+              </div>
+            </div>
+          </section>
+
           <section id="join-us" className="join-us-section py-xl">
             <div className="container">
               <h2 className="section-title">Mande sua mensagem</h2>
@@ -255,12 +304,12 @@ export default function Home() {
                   placeholder="Seu email"
                   className="email-input"
                 />
-                 <textarea 
-        placeholder="Sua mensagem"
-        className="message-input"
-        rows={4}
-      />
-      
+                <textarea
+                  placeholder="Sua mensagem"
+                  className="message-input"
+                  rows={4}
+                />
+
                 <Button text="Enviar" />
               </div>
             </div>
