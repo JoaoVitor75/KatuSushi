@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { ErrorBoundary } from 'react-error-boundary';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Header} from "../components/Header";
 import { Hero } from "../components/Hero";
 import { Tutorial} from "../components/Tutorial";
@@ -15,6 +17,25 @@ import "../styles/contact.css";
 import "../styles/testimonials.css";
 import "../styles/combos.css";
 import "../styles/footer.css";
+
+const ErrorFallback = ({ error, resetErrorBoundary }: { error: Error; resetErrorBoundary: () => void }) => {
+  return (
+    <div role="alert" className="error-container">
+      <h2>Deu ruim</h2>
+      <pre>{error.message}</pre>
+      <button onClick={resetErrorBoundary}>Try again</button>
+    </div>
+  );
+};
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 1,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 export default function Home() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -37,17 +58,21 @@ export default function Home() {
   }, [showMobileMenu]);
 
   return (
-    <>
-      <Header 
-        showMobileMenu={showMobileMenu} 
-        setShowMobileMenu={setShowMobileMenu} 
-      />
+    <ErrorBoundary 
+      FallbackComponent={ErrorFallback}
+      onReset={() => {
+        queryClient.clear();
+      }}
+    >
+      <QueryClientProvider client={queryClient}>
+      <Header showMobileMenu={showMobileMenu} setShowMobileMenu={setShowMobileMenu} />
       <Hero/>
       <Tutorial/>
       <Testimonials/>
       <Combos/>
       <Contact/>
       <Footer/>
-    </>
+    </QueryClientProvider>
+    </ErrorBoundary>
   );
 }
